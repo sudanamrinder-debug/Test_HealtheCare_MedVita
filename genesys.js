@@ -14,3 +14,13 @@
   environment: 'prod-aps1',
   deploymentId: 'b81334ac-9fc1-41b3-a1db-de025c277a0c'
 });
+
+window.onload = function () {
+
+  Genesys("command", "Journey.record", {
+    eventName: "test_offer"
+  });
+
+  console.log("Journey event sent");
+
+};
