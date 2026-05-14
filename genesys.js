@@ -24,3 +24,13 @@
       deploymentId: 'b81334ac-9fc1-41b3-a1db-de025c277a0c'
    }
 );
+
+window.onload = function () {
+
+  Genesys("command", "Journey.record", {
+    eventName: "website_opened"
+  });
+
+  console.log("website_opened event sent");
+
+};
