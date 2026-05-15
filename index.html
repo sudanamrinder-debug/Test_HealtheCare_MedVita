@@ -1421,5 +1421,40 @@
     document.getElementById('bookingDate').value = today;
   });
 </script>
+  <script src="genesys.js"></script>
+
+<script>
+
+function openDept(dept) {
+
+  // Trigger Predictive Engagement Journey Event
+  Genesys("command", "Journey.record", {
+    eventName: dept + "_visited"
+  });
+
+  console.log(dept + "_visited event sent");
+
+  // Close all department pages
+  document.querySelectorAll('.dept-page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  // Open selected department page
+  document.getElementById('dept-' + dept).classList.add('active');
+
+  // Prevent background scrolling
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDept() {
+
+  document.querySelectorAll('.dept-page').forEach(page => {
+    page.classList.remove('active');
+  });
+
+  document.body.style.overflow = 'auto';
+}
+
+</script>
 </body>
 </html>
